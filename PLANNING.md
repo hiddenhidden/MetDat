@@ -18,6 +18,7 @@
 ### Phase 1: Foundation & UI Setup (CRITICAL)
 1. **Color Scheme Implementation**
    - Implement exact colors from GrayScalePalette.png
+   - Font colors: Black for light mode, White for dark mode
    - Ensure 80% minimum grayscale usage
    - Light/dark mode variants
    - Contrast validation
