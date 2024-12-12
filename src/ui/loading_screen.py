@@ -24,19 +24,22 @@ class LoadingScreen(tk.Tk):
         # Set window size and position
         self.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
         
-        # Create border frame
+        # Get current system theme
+        self.theme_mode = Theme.get_system_mode()
+        
+        # Create border frame (thick stroke)
         self.border_frame = tk.Frame(
             self,
-            bg=Theme.get_color('border'),
-            padx=1,
-            pady=1
+            bg=Theme.get_color('border', self.theme_mode),
+            padx=3,  # Increased border thickness
+            pady=3   # Increased border thickness
         )
         self.border_frame.pack(fill=tk.BOTH, expand=True)
         
         # Create main frame
         self.main_frame = tk.Frame(
             self.border_frame,
-            bg=Theme.get_color('bg')
+            bg=Theme.get_color('bg', self.theme_mode)
         )
         self.main_frame.pack(fill=tk.BOTH, expand=True)
         
@@ -45,15 +48,15 @@ class LoadingScreen(tk.Tk):
             self.main_frame,
             text="META INJECTOR",
             font=Theme.TITLE_FONT,
-            fg=Theme.get_color('fg'),
-            bg=Theme.get_color('bg')
+            fg=Theme.get_color('fg', self.theme_mode),
+            bg=Theme.get_color('bg', self.theme_mode)
         )
         self.title_label.pack(pady=(40, 20))
         
         # Create progress bar frame
         self.progress_frame = tk.Frame(
             self.main_frame,
-            bg=Theme.get_color('bg'),
+            bg=Theme.get_color('bg', self.theme_mode),
             padx=40
         )
         self.progress_frame.pack(fill=tk.X)
@@ -62,11 +65,11 @@ class LoadingScreen(tk.Tk):
         self.style = ttk.Style()
         self.style.configure(
             "MetDat.Horizontal.TProgressbar",
-            troughcolor=Theme.get_color('border'),
-            background=Theme.get_color('progress'),
-            bordercolor=Theme.get_color('border'),
-            lightcolor=Theme.get_color('progress'),
-            darkcolor=Theme.get_color('progress')
+            troughcolor=Theme.get_color('accent', self.theme_mode),
+            background=Theme.get_color('progress', self.theme_mode),
+            bordercolor=Theme.get_color('border', self.theme_mode),
+            lightcolor=Theme.get_color('progress', self.theme_mode),
+            darkcolor=Theme.get_color('progress', self.theme_mode)
         )
         
         # Add progress bar
@@ -83,8 +86,8 @@ class LoadingScreen(tk.Tk):
             self.main_frame,
             text="Loading...",
             font=Theme.BODY_FONT,
-            fg=Theme.get_color('fg'),
-            bg=Theme.get_color('bg')
+            fg=Theme.get_color('fg', self.theme_mode),
+            bg=Theme.get_color('bg', self.theme_mode)
         )
         self.status_label.pack(pady=20)
 

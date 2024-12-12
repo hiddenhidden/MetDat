@@ -17,6 +17,7 @@
 - Keep the UI clean and simple, with a focus on functionality and user experience., but keep it strict to the guidelines listed under UI.
 - Almost all of the data should be randomized **if** the user chooses to randomize it, but all of the data should be consistent with the device model release date, and the current date. as well as the current time.
 - Simple loading screen that appears immediately once the app opens and shows the status of the loading as a progress bar with the title "META INJECTOR" above it. Close the loading window once the app is fully loaded.
+- Loading screen must have a thick stroke (border) that adapts to system light/dark mode
 - Never use widgets
 - Single window for the entire app.
 

@@ -39,6 +39,8 @@
    - Immediate display on launch
    - "META INJECTOR" title
    - Progress bar
+   - Thick stroke border (adapts to system theme)
+   - System theme detection (light/dark)
    - Grayscale theme compliance
    - Auto-close on full load
 
@@ -49,6 +51,7 @@
    - Grid system with visible lines
    - Mac drag-and-drop implementation
    - No widgets policy
+   - Manual theme toggle (light/dark)
 
 ### Phase 2: Core Features
 1. **Metadata Control System**

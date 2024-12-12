@@ -15,6 +15,8 @@
 - [ ] Create immediate-display loading window
 - [ ] Implement "META INJECTOR" title with Helvetica Neue BOLD
 - [ ] Add progress bar with grayscale styling
+- [ ] Add thick stroke border
+- [ ] Implement system theme detection
 - [ ] Implement auto-close functionality
 
 ### Main Window Setup
@@ -23,6 +25,7 @@
 - [ ] Add headers and footers for each section
 - [ ] Set up Mac drag-and-drop functionality
 - [ ] Implement visible grid lines for tables
+- [ ] Add manual theme toggle
 
 ### Typography Implementation
 - [ ] Import and verify Helvetica Neue BOLD
