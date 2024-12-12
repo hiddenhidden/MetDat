@@ -24,8 +24,20 @@ class LoadingScreen(tk.Tk):
         # Set window size and position
         self.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
         
+        # Create border frame
+        self.border_frame = tk.Frame(
+            self,
+            bg=Theme.get_color('border'),
+            padx=1,
+            pady=1
+        )
+        self.border_frame.pack(fill=tk.BOTH, expand=True)
+        
         # Create main frame
-        self.main_frame = tk.Frame(self, bg=Theme.get_color('bg'))
+        self.main_frame = tk.Frame(
+            self.border_frame,
+            bg=Theme.get_color('bg')
+        )
         self.main_frame.pack(fill=tk.BOTH, expand=True)
         
         # Add title

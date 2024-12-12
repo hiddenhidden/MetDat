@@ -2,7 +2,7 @@
 Main entry point for the MetDat application.
 """
 import time
-from src.ui import LoadingScreen
+from .ui import LoadingScreen
 
 def main():
     # Create and show loading screen
