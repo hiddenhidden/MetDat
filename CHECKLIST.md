@@ -1,23 +1,23 @@
 # MetDat Development Checklist
 
 ## Initial Setup
-- [ ] Create project structure
-- [ ] Set up virtual environment
-- [ ] Create requirements.txt with minimal dependencies:
-  - [ ] tkinter (built-in)
-  - [ ] Faker
-  - [ ] ExifTool wrapper
-- [ ] Create .gitignore file
-- [ ] Create README.md
+- [x] Create project structure
+- [x] Set up virtual environment
+- [x] Create requirements.txt with minimal dependencies:
+  - [x] tkinter (built-in)
+  - [x] Faker
+  - [x] ExifTool wrapper
+- [x] Create .gitignore file
+- [x] Create README.md
 
 ## Phase 1: Foundation & UI
 ### Loading Screen
-- [ ] Create immediate-display loading window
-- [ ] Implement "META INJECTOR" title with Helvetica Neue BOLD
-- [ ] Add progress bar with grayscale styling
-- [ ] Add thick stroke border
-- [ ] Implement system theme detection
-- [ ] Implement auto-close functionality
+- [x] Create immediate-display loading window
+- [x] Implement "META INJECTOR" title with Helvetica Neue BOLD
+- [x] Add progress bar with grayscale styling
+- [x] Add thick stroke border
+- [x] Implement system theme detection
+- [x] Implement auto-close functionality
 
 ### Main Window Setup
 - [ ] Create single-window architecture
@@ -28,19 +28,19 @@
 - [ ] Add manual theme toggle
 
 ### Typography Implementation
-- [ ] Import and verify Helvetica Neue BOLD
-- [ ] Import and verify Roboto MONO
-- [ ] Set up font management system:
-  - [ ] Helvetica Neue BOLD (ALL CAPS) for titles/headers/dropdowns
-  - [ ] Roboto MONO BOLD (ALL CAPS) for buttons
-  - [ ] Roboto MONO for body text and filenames
+- [x] Import and verify Helvetica Neue BOLD
+- [x] Import and verify Roboto MONO
+- [x] Set up font management system:
+  - [x] Helvetica Neue BOLD (ALL CAPS) for titles/headers/dropdowns
+  - [x] Roboto MONO BOLD (ALL CAPS) for buttons
+  - [x] Roboto MONO for body text and filenames
 
 ### Color System
-- [ ] Implement grayscale palette from GrayScalePalette.png
-- [ ] Set up light/dark mode system
-- [ ] Implement black/white font colors for modes
-- [ ] Create color validation system (80% grayscale minimum)
-- [ ] Test contrast ratios
+- [x] Implement grayscale palette from GrayScalePalette.png
+- [x] Set up light/dark mode system
+- [x] Implement black/white font colors for modes
+- [x] Create color validation system (80% grayscale minimum)
+- [x] Test contrast ratios
 
 ## Phase 2: Core Functionality
 ### Metadata Control Panel
@@ -120,7 +120,7 @@
 - [ ] Verify caching effectiveness
 
 ## Documentation
-- [ ] Create user guide
+- [x] Create user guide
 - [ ] Write technical documentation
 - [ ] Create testing documentation
 - [ ] Write maintenance guide

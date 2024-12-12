@@ -1,4 +1,7 @@
+"""
+UI package initialization.
+"""
 from .loading_screen import LoadingScreen
-from .styles import Theme
+from .main_window import MainWindow
 
-__all__ = ['LoadingScreen', 'Theme']
+__all__ = ['LoadingScreen', 'MainWindow']
