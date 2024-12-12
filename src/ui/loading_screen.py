@@ -5,6 +5,70 @@ import tkinter as tk
 from tkinter import ttk
 from .styles import Theme
 
+class RoundedFrame(tk.Canvas):
+    """A canvas that draws a rounded rectangle frame."""
+    def __init__(self, parent, bg, border_color, border_width=2, corner_radius=8, **kwargs):
+        super().__init__(parent, **kwargs)
+        self.border_width = border_width
+        self.corner_radius = corner_radius
+        self.border_color = border_color
+        self.bg = bg
+        
+        self.bind('<Configure>', self._on_resize)
+        self.configure(highlightthickness=0, bg=self.bg)
+
+    def _on_resize(self, event):
+        """Redraw the rounded rectangle when the window is resized."""
+        width = event.width
+        height = event.height
+        
+        # Clear previous drawing
+        self.delete('all')
+        
+        # Draw the rounded rectangle
+        self.create_rounded_rect(
+            self.border_width/2,
+            self.border_width/2,
+            width - self.border_width,
+            height - self.border_width,
+            self.corner_radius,
+            self.border_color,
+            self.bg
+        )
+
+    def create_rounded_rect(self, x1, y1, x2, y2, radius, border_color, fill_color):
+        """Create a rounded rectangle."""
+        points = [
+            x1 + radius, y1,                      # Top line
+            x2 - radius, y1,
+            x2 - radius, y1,                      # Top right corner
+            x2, y1,
+            x2, y1 + radius,
+            x2, y1 + radius,                      # Right line
+            x2, y2 - radius,
+            x2, y2 - radius,                      # Bottom right corner
+            x2, y2,
+            x2 - radius, y2,
+            x2 - radius, y2,                      # Bottom line
+            x1 + radius, y2,
+            x1 + radius, y2,                      # Bottom left corner
+            x1, y2,
+            x1, y2 - radius,
+            x1, y2 - radius,                      # Left line
+            x1, y1 + radius,
+            x1, y1 + radius,                      # Top left corner
+            x1, y1,
+            x1 + radius, y1,
+        ]
+        
+        return self.create_polygon(
+            points,
+            smooth=True,
+            fill=fill_color,
+            outline=border_color,
+            width=self.border_width
+        )
+
 class LoadingScreen(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -27,21 +91,23 @@ class LoadingScreen(tk.Tk):
         # Get current system theme
         self.theme_mode = Theme.get_system_mode()
         
-        # Create border frame (thick stroke)
-        self.border_frame = tk.Frame(
+        # Create main container with rounded corners
+        self.container = RoundedFrame(
             self,
-            bg=Theme.get_color('border', self.theme_mode),
-            padx=3,  # Increased border thickness
-            pady=3   # Increased border thickness
+            bg=Theme.get_color('bg', self.theme_mode),
+            border_color=Theme.get_color('border', self.theme_mode),
+            border_width=2,  # Thinner border
+            corner_radius=6  # Slightly rounded corners
         )
-        self.border_frame.pack(fill=tk.BOTH, expand=True)
+        self.container.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)
         
         # Create main frame
         self.main_frame = tk.Frame(
-            self.border_frame,
+            self.container,
             bg=Theme.get_color('bg', self.theme_mode)
         )
-        self.main_frame.pack(fill=tk.BOTH, expand=True)
+        # Position the frame within the rounded container
+        self.main_frame.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.96)
         
         # Add title
         self.title_label = tk.Label(
